@@ -1,0 +1,22 @@
+<div>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Hours Worked</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees" [ngClass]="{'highlight': employee.hoursWorked < 100}" (click)="updateChart(employee)">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.hoursWorked }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="selectedEmployee">
+    <h2>Employee: {{ selectedEmployee.name }}</h2>
+    <canvas id="pieChart"></canvas>
+  </div>
+  
